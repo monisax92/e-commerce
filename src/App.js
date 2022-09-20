@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import CardsContainer from "./components/CardsContainer/cards-container.component";
+const categories = [
+  { id: 1, name: "books", imageUrl: "https://i.ibb.co/vX54VYc/books.jpg" },
+  { id: 2, name: "music", imageUrl: "https://i.ibb.co/MS03kkn/music.jpg" },
+  { id: 3, name: "movies", imageUrl: "https://i.ibb.co/kBNPGRJ/movies.jpg" },
+  {
+    id: 4,
+    name: "video games",
+    imageUrl: "https://i.ibb.co/3S3ytkn/computer-games.jpg"
+  },
+  {
+    id: 5,
+    name: "board games",
+    imageUrl: "https://i.ibb.co/60w4nCJ/board-games.jpg"
+  }
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CardsContainer containerType="categories-container" data={categories} />
   );
 }
 
