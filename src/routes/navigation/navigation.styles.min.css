@@ -1,0 +1,1 @@
+.navigation-bar{height:80px;width:100%;display:flex;justify-content:space-between;margin-bottom:25px;background-color:#f5e1cd}.navigation-bar .logo-container{height:100%;padding:15px}.navigation-bar .nav-links-container{width:50%;height:100%;display:flex;align-items:center;justify-content:flex-end}.navigation-bar .nav-links-container .nav-link{padding:10px 15px;cursor:pointer}
