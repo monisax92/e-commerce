@@ -1,15 +1,22 @@
 .navigation-bar {
   height: 80px;
-  width: 100%;
+  width: 79vw;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 25px;
-  background-color: #f5e1cd;
+  margin: 1vh auto 2vh;
 }
 
 .navigation-bar .logo-container {
   height: 100%;
+  display: flex;
+  align-items: center;
   padding: 15px;
+}
+
+.navigation-bar .logo-container h1 {
+  margin-left: 10px;
+  font-size: 1.5rem;
+  font-weight: 200;
 }
 
 .navigation-bar .nav-links-container {
@@ -23,4 +30,9 @@
 .navigation-bar .nav-links-container .nav-link {
   padding: 10px 15px;
   cursor: pointer;
+}
+
+.page-content {
+  width: 80vw;
+  margin: 0 auto;
 }

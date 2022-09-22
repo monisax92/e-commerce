@@ -1,6 +1,6 @@
 .category-container {
   min-width: 30%;
-  height: 45vh;
+  height: 40vh;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
@@ -20,7 +20,8 @@
 }
 
 .category-container:hover .category-info-container {
-  opacity: 0.9;
+  opacity: 0.95;
+  transition: opacity .5s ease-in-out;
 }
 
 .category-container .background-image {
@@ -43,6 +44,7 @@
   background-color: white;
   opacity: 0.7;
   position: absolute;
+  transition: opacity .75s ease-in-out;
 }
 
 .category-container .category-info-container h2 {
