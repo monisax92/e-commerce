@@ -1,10 +1,14 @@
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
-  signInWithRedirect,
+  //   signInWithRedirect,
   signInWithPopup,
-  GoogleAuthProvider
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword
 } from "firebase/auth";
+
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
 /***********************
  * Firebase setup:
@@ -24,11 +28,64 @@ const app = initializeApp(firebaseConfig);
 /***********************
  * Authentication setup:
  ************************/
-const provider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider();
 
-provider.setCustomParameters({
+googleProvider.setCustomParameters({
   prompt: "select_account"
 });
 
+// Initialize authentication object:
 export const auth = getAuth();
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+
+//sign IN with email and password:
+export const signInWithEmailAndPass = async (email, password) => {
+  if (!email || !password) {
+    alert("Please fill both fields");
+    return;
+  }
+  return await signInWithEmailAndPassword(auth, email, password);
+};
+
+//sign IN with google account:
+export const signInWithGooglePopup = () => {
+  return signInWithPopup(auth, googleProvider);
+};
+
+//sing UP with email and password:
+export const createAuthUserFromEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+  console.log(auth, email, password);
+  return await createUserWithEmailAndPassword(auth, email, password);
+};
+
+//instanciate database:
+export const db = getFirestore();
+
+//create new document with user's data in "users" collection on database:
+export const createUserDocFromAuth = async (userAuth, additionalData) => {
+  if (!auth) return;
+
+  const userDocInstance = doc(db, "users", userAuth.uid);
+  const userSnapshot = await getDoc(userDocInstance);
+
+  if (!userSnapshot.exists()) {
+    const { displayName, email } = userAuth;
+    const creationDate = new Date();
+
+    try {
+      await setDoc(userDocInstance, {
+        displayName,
+        email,
+        //we don't store passwords in db
+        creationDate,
+        ...additionalData //spreading object of additional data like displayName (not needed for google as it knows user's name itself)
+      });
+    } catch (error) {
+      if (error.code == "auth/email-already-in-use")
+        console.log("User for this email already exists!");
+      else console.log("User could not be added to database", error.message);
+    }
+  }
+
+  return userDocInstance;
+};
