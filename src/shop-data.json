@@ -1,0 +1,66 @@
+[
+  {
+    "ibsn": "0008328927",
+    "author": "Agatha Christie",
+    "title": "And Then There Were None",
+    "original-year": "1939",
+    "image": "https://i.ibb.co/dJjjpZr/0008328927.jpg",
+    "price": 7.99
+  },
+  {
+    "ibsn": "0062073583",
+    "author": "Agatha Christie",
+    "title": "The A. B. C. Murders: A Hercule Poirot Mystery",
+    "original-year": "1936",
+    "image": "https://i.ibb.co/Z2V1Fvp/81xboq-Jhz-QL.jpg",
+    "price": 9.99
+  },
+  {
+    "ibsn": "9780008226671",
+    "author": "Agatha Christie",
+    "title": "Murder on the Orient Express",
+    "original-year": "1934",
+    "image": "https://i.ibb.co/1r16PHM/9780008226671.jpg",
+    "price": 12.99
+  },
+  {
+    "ibsn": "000838682X",
+    "author": "Agatha Christie",
+    "title": "Death on the Nile",
+    "original-year": "1937",
+    "image": "https://i.ibb.co/C75hBmz/000838682-X.jpg",
+    "price": 10.99
+  },
+  {
+    "ibsn": "0525565108",
+    "author": "Agatha Christie",
+    "title": "The mysterious affair at styles",
+    "original-year": "1920",
+    "image": "https://i.ibb.co/7Kq6nqw/918-Tv-CMQO4-L.jpg",
+    "price": 8.99
+  },
+  {
+    "ibsn": "0008255849",
+    "author": "Agatha Christie",
+    "title": "Murder in Mesopotamia",
+    "original-year": "1936",
+    "image": "https://i.ibb.co/Z6LKKDH/81uo1jj-CJh-L-AC-UY327-QL65.jpg",
+    "price": 9.99
+  },
+  {
+    "ibsn": "9780007527526",
+    "author": "Agatha Christie",
+    "title": "The Murder of Roger Ackroyd",
+    "original-year": "1926",
+    "image": "https://i.ibb.co/0MyWc07/9780007527526.jpg",
+    "price": 8.99
+  },
+  {
+    "ibsn": "0062073745",
+    "author": "Agatha Christie",
+    "title": "Death in the clouds",
+    "original-year": "1935",
+    "image": "https://i.ibb.co/tKgtw7W/81i-Cm413o-UL-AC-UY327-QL65.jpg",
+    "price": 9.99
+  }
+]

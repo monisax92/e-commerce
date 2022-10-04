@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import { UserContext } from "../../contexts/user.context";
 import {signInWithGooglePopup, signInWithEmailAndPass, createUserDocFromAuth} from '../../utils/firebase/firebase.utils';
 import Button from "../Button/button.component";
 import FormInput from "../FormInput/form-input.component";
@@ -10,29 +11,15 @@ const fieldsDefaults = {
     password: ''
 };
 
-// const logUser = async () => {
-    
-//     response
-//       .then(userCredential => {
-//       // Signed in
-//       const user = userCredential.user;
-//       // ...
-//     })
-//     .catch(error => {
-//       console.log("error: " + error.message);
-//     });    
-//         console.log("logged in!");
-//     }
 
-const logGoogleUser = async () => {
-        const response = await signInWithGooglePopup();
-        await createUserDocFromAuth(response.user);
-    }    
+   
 
 const SignInForm = () => {
 
     const [fields, setFields] = useState(fieldsDefaults);
     const {email, password} = fields;
+
+    // const {setCurrentUser} = useContext(UserContext); //useContext returns object with value, here we need only setter function from it to change this state when user signs in
 
     const fieldChangeHandler = (e) => {
         const {name, value} = e.target;
@@ -41,13 +28,10 @@ const SignInForm = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-       
-       
-        
 
         try{
             const response = await signInWithEmailAndPass(email, password);
-            console.log(response);
+            // setCurrentUser(response.user);
             setFields(fieldsDefaults);
         }
         catch(error){
@@ -62,6 +46,11 @@ const SignInForm = () => {
             
     }
 
+    const logGoogleUser = async () => {
+            await signInWithGooglePopup();
+            // createUserDocFromAuth(response.user);
+            // setCurrentUser(response.user);
+    } 
 
     return(
         <div className="sign-up-container">

@@ -5,7 +5,9 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
 } from "firebase/auth";
 
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
@@ -37,6 +39,10 @@ googleProvider.setCustomParameters({
 // Initialize authentication object:
 export const auth = getAuth();
 
+/***********************
+ * Interface layer functions:
+ ************************/
+
 //sign IN with email and password:
 export const signInWithEmailAndPass = async (email, password) => {
   if (!email || !password) {
@@ -51,11 +57,19 @@ export const signInWithGooglePopup = () => {
   return signInWithPopup(auth, googleProvider);
 };
 
-//sing UP with email and password:
+//sign UP with email and password:
 export const createAuthUserFromEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
   console.log(auth, email, password);
   return await createUserWithEmailAndPassword(auth, email, password);
+};
+
+//sign OUT:
+export const signOutUser = async () => await signOut(auth);
+
+//listener for authentication changes:
+export const onAuthStateChangedListener = callback => {
+  return onAuthStateChanged(auth, callback);
 };
 
 //instanciate database:
@@ -86,6 +100,5 @@ export const createUserDocFromAuth = async (userAuth, additionalData) => {
       else console.log("User could not be added to database", error.message);
     }
   }
-
   return userDocInstance;
 };
